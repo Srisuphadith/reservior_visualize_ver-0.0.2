@@ -2,6 +2,8 @@
 
 A web dashboard that shows how much water is in Thailand's reservoirs, using public data from the **Royal Irrigation Department (RID / กรมชลประทาน)**.
 
+For a detailed explanation of how the system works (in Thai), see [docs/](docs/README.md).
+
 ---
 
 ## 1. Scope
