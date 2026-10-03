@@ -1,0 +1,13 @@
+{
+  "name": "reservoir-dashboard-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "mock-rid": "bun mock-rid.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1",
+    "@types/bun": "^1.4.2"
+  }
+}
