@@ -1,0 +1,19 @@
+# Integration-test override: point the API at a mock RID that serves the saved fixture.
+# Usage: docker compose -f docker-compose.yml -f docker-compose.test.yml up -d --build
+services:
+  mock-rid:
+    image: oven/bun:1.3-alpine
+    working_dir: /mock
+    command: ["bun", "mock-rid.ts"]
+    environment:
+      FIXTURE: /fixtures/rid-2026-10-03.json
+      PORT: "4000"
+    volumes:
+      - ./e2e/mock-rid.ts:/mock/mock-rid.ts:ro
+      - ./backend/test/fixtures:/fixtures:ro
+
+  api:
+    environment:
+      RID_API_URL: http://mock-rid:4000/
+    depends_on:
+      - mock-rid
